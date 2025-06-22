@@ -1,1 +1,43 @@
 
+{
+  "manifest_version": 3,
+  "name": "WebTask Manager",
+  "version": "1.0.0",
+  "description": "A comprehensive task manager for browser tabs and downloads with 2D camera interface",
+  "permissions": [
+    "tabs",
+    "downloads",
+    "activeTab",
+    "storage",
+    "system.memory",
+    "system.cpu",
+    "background"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "WebTask Manager",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  }
+}
