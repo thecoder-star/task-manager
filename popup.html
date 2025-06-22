@@ -1,1 +1,103 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTask Manager</title>
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="camera-container">
+        <div id="main-content">
+            <header class="header">
+                <div class="header-title">
+                    <i class="fas fa-tasks"></i>
+                    <h1>WebTask Manager</h1>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">CPU:</span>
+                        <span id="cpu-usage" class="stat-value">0%</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Memory:</span>
+                        <span id="memory-usage" class="stat-value">0%</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="tab-navigation">
+                <button class="nav-tab active" data-tab="tabs">
+                    <i class="fas fa-browser"></i>
+                    <span>Browser Tabs</span>
+                    <span id="tabs-count" class="count-badge">0</span>
+                </button>
+                <button class="nav-tab" data-tab="downloads">
+                    <i class="fas fa-download"></i>
+                    <span>Downloads</span>
+                    <span id="downloads-count" class="count-badge">0</span>
+                </button>
+            </nav>
+
+            <main class="content-area">
+                <div id="tabs-panel" class="panel active">
+                    <div class="panel-header">
+                        <h2>Active Browser Tabs</h2>
+                        <div class="panel-controls">
+                            <button id="refresh-tabs" class="control-btn">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <button id="close-all-tabs" class="control-btn danger">
+                                <i class="fas fa-times-circle"></i>
+                                Close All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="tabs-search" placeholder="Search tabs..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div id="tabs-list" class="task-list">
+                        <!-- Tabs will be populated here -->
+                    </div>
+                </div>
+
+                <div id="downloads-panel" class="panel">
+                    <div class="panel-header">
+                        <h2>Download Manager</h2>
+                        <div class="panel-controls">
+                            <button id="refresh-downloads" class="control-btn">
+                                <i class="fas fa-sync-alt"></i>
+                                Refresh
+                            </button>
+                            <button id="clear-downloads" class="control-btn danger">
+                                <i class="fas fa-trash"></i>
+                                Clear History
+                            </button>
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <input type="text" id="downloads-search" placeholder="Search downloads..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <div id="downloads-list" class="task-list">
+                        <!-- Downloads will be populated here -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Loading...</span>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
